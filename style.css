@@ -1,394 +1,447 @@
-  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Global reset to remove default margins, padding, and set box-sizing for consistent layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
-        }
+/* Body styling for the entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets a modern, readable font stack */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradient background for visual appeal */
+    min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+    padding: 20px; /* Adds padding around the body content */
+    color: #333; /* Default text color */
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* Main container for centering content */
+.container {
+    max-width: 1200px; /* Limits the maximum width of the content */
+    margin: 0 auto; /* Centers the container horizontally */
+}
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+/* Header styling for the app title and description */
+.header {
+    text-align: center; /* Centers the header content */
+    margin-bottom: 30px; /* Adds space below the header */
+}
 
-        .header h1 {
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
+/* Styling for the main heading */
+.header h1 {
+    color: white; /* White text for contrast against the gradient background */
+    font-size: 2.5rem; /* Large font size for prominence */
+    font-weight: 300; /* Lighter font weight for a modern look */
+    margin-bottom: 10px; /* Space below the heading */
+}
 
-        .header p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-        }
+/* Styling for the header description */
+.header p {
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for subtlety */
+    font-size: 1.1rem; /* Slightly larger font for readability */
+}
 
-        .search-container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            margin-bottom: 30px;
-        }
+/* Search container styling */
+.search-container {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 25px; /* Internal padding for spacing */
+    border-radius: 20px; /* Rounded corners for a modern look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    backdrop-filter: blur(10px); /* Glassmorphism effect for a frosted look */
+    margin-bottom: 30px; /* Space below the search container */
+}
 
-        .search-box {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+/* Search box layout */
+.search-box {
+    display: flex; /* Flexbox for horizontal layout */
+    gap: 15px; /* Space between elements */
+    margin-bottom: 20px; /* Space below the search box */
+}
 
-        .search-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
+/* Search input styling */
+.search-input {
+    flex: 1; /* Takes available space in the flex container */
+    padding: 15px 20px; /* Padding for comfortable input area */
+    border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 50px; /* Pill-shaped input field */
+    font-size: 16px; /* Readable font size */
+    outline: none; /* Removes default focus outline */
+    transition: all 0.3s ease; /* Smooth transitions for border and shadow */
+}
 
-        .search-input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+/* Search input focus state */
+.search-input:focus {
+    border-color: #667eea; /* Blue border on focus */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* Subtle glow effect */
+}
 
-        .search-btn, .location-btn {
-            padding: 15px 25px;
-            border: none;
-            border-radius: 50px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
+/* Styling for search and location buttons */
+.search-btn, .location-btn {
+    padding: 15px 25px; /* Comfortable padding for buttons */
+    border: none; /* Removes default border */
+    border-radius: 50px; /* Pill-shaped buttons */
+    background: linear-gradient(45deg, #667eea, #764ba2); /* Gradient background */
+    color: white; /* White text for contrast */
+    font-size: 16px; /* Readable font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+    font-weight: 500; /* Medium font weight for emphasis */
+}
 
-        .search-btn:hover, .location-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
+/* Hover effect for search and location buttons */
+.search-btn:hover, .location-btn:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); /* Enhanced shadow on hover */
+}
 
-        .location-btn {
-            background: linear-gradient(45deg, #56ab2f, #a8e6cf);
-        }
+/* Specific styling for the location button */
+.location-btn {
+    background: linear-gradient(45deg, #56ab2f, #a8e6cf); /* Green gradient for distinction */
+}
 
-        .quick-cities {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+/* Quick cities container styling */
+.quick-cities {
+    display: flex; /* Flexbox for horizontal layout */
+    gap: 10px; /* Space between city tags */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center; /* Centers the city tags */
+}
 
-        .city-tag {
-            padding: 8px 16px;
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            border-radius: 20px;
-            color: #667eea;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
+/* City tag styling */
+.city-tag {
+    padding: 8px 16px; /* Compact padding for tags */
+    background: rgba(102, 126, 234, 0.1); /* Light blue background */
+    border: 1px solid rgba(102, 126, 234, 0.3); /* Subtle border */
+    border-radius: 20px; /* Rounded corners */
+    color: #667eea; /* Blue text */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+    font-size: 14px; /* Smaller font for tags */
+}
 
-        .city-tag:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-1px);
-        }
+/* Hover effect for city tags */
+.city-tag:hover {
+    background: #667eea; /* Solid blue background on hover */
+    color: white; /* White text for contrast */
+    transform: translateY(-1px); /* Slight lift effect */
+}
 
-        .weather-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
+/* Weather grid layout */
+.weather-grid {
+    display: grid; /* Grid layout for main weather and details */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Space between grid items */
+    margin-bottom: 30px; /* Space below the grid */
+}
 
-        .main-weather {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
+/* Main weather section styling */
+.main-weather {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 30px; /* Internal padding */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center; /* Centers content */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+}
 
-        .weather-details {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
+/* Weather details section styling */
+.weather-details {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 30px; /* Internal padding */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+}
 
-        .city-name {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #333;
-        }
+/* City name styling */
+.city-name {
+    font-size: 1.8rem; /* Large font for prominence */
+    font-weight: 600; /* Bold font weight */
+    margin-bottom: 5px; /* Space below */
+    color: #333; /* Dark text for readability */
+}
 
-        .date-time {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
+/* Date and time styling */
+.date-time {
+    color: #666; /* Gray text for subtlety */
+    margin-bottom: 20px; /* Space below */
+    font-size: 14px; /* Smaller font size */
+}
 
-        .weather-icon {
-            width: 120px;
-            height: 120px;
-            margin: 20px auto;
-        }
+/* Weather icon styling */
+.weather-icon {
+    width: 120px; /* Fixed width for consistency */
+    height: 120px; /* Fixed height */
+    margin: 20px auto; /* Centers the icon with spacing */
+}
 
-        .temperature {
-            font-size: 4rem;
-            font-weight: 300;
-            color: #333;
-            margin: 20px 0;
-        }
+/* Temperature styling */
+.temperature {
+    font-size: 4rem; /* Large font for emphasis */
+    font-weight: 300; /* Lighter font weight for modern look */
+    color: #333; /* Dark text */
+    margin: 20px 0; /* Vertical spacing */
+}
 
-        .weather-desc {
-            font-size: 1.2rem;
-            color: #666;
-            text-transform: capitalize;
-            margin-bottom: 20px;
-        }
+/* Weather description styling */
+.weather-desc {
+    font-size: 1.2rem; /* Readable font size */
+    color: #666; /* Gray text for contrast */
+    text-transform: capitalize; /* Capitalizes the first letter of each word */
+    margin-bottom: 20px; /* Space below */
+}
 
-        .feels-like {
-            color: #888;
-            font-size: 16px;
-        }
+/* Feels-like temperature styling */
+.feels-like {
+    color: #888; /* Lighter gray for subtlety */
+    font-size: 16px; /* Readable font size */
+}
 
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
+/* Weather detail item layout */
+.detail-item {
+    display: flex; /* Flexbox for label and value alignment */
+    justify-content: space-between; /* Spreads content evenly */
+    align-items: center; /* Vertically aligns content */
+    padding: 12px 0; /* Vertical padding */
+    border-bottom: 1px solid #eee; /* Light divider line */
+}
 
-        .detail-item:last-child {
-            border-bottom: none;
-        }
+/* Removes border from the last detail item */
+.detail-item:last-child {
+    border-bottom: none;
+}
 
-        .detail-label {
-            display: flex;
-            align-items: center;
-            color: #666;
-            font-weight: 500;
-        }
+/* Detail label styling */
+.detail-label {
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center; /* Vertically centers content */
+    color: #666; /* Gray text */
+    font-weight: 500; /* Medium font weight */
+}
 
-        .detail-label i {
-            margin-right: 10px;
-            color: #667eea;
-            width: 20px;
-        }
+/* Icon styling within detail labels */
+.detail-label i {
+    margin-right: 10px; /* Space between icon and text */
+    color: #667eea; /* Blue icon color */
+    width: 20px; /* Fixed width for alignment */
+}
 
-        .detail-value {
-            font-weight: 600;
-            color: #333;
-        }
+/* Detail value styling */
+.detail-value {
+    font-weight: 600; /* Bold font for emphasis */
+    color: #333; /* Dark text for readability */
+}
 
-        .forecast-container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            margin-bottom: 30px;
-        }
+/* Forecast container styling */
+.forecast-container {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 30px; /* Internal padding */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    margin-bottom: 30px; /* Space below */
+}
 
-        .forecast-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
+/* Forecast title styling */
+.forecast-title {
+    font-size: 1.5rem; /* Prominent font size */
+    font-weight: 600; /* Bold font weight */
+    margin-bottom: 20px; /* Space below */
+    color: #333; /* Dark text */
+    text-align: center; /* Centers the title */
+}
 
-        .hourly-forecast {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
+/* Hourly forecast layout */
+.hourly-forecast {
+    display: grid; /* Grid layout for hourly items */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 15px; /* Space between items */
+}
 
-        .hourly-item {
-            background: rgba(102, 126, 234, 0.05);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-        }
+/* Hourly forecast item styling */
+.hourly-item {
+    background: rgba(102, 126, 234, 0.05); /* Very light blue background */
+    padding: 20px; /* Internal padding */
+    border-radius: 15px; /* Rounded corners */
+    text-align: center; /* Centers content */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+    border: 1px solid rgba(102, 126, 234, 0.1); /* Subtle border */
+}
 
-        .hourly-item:hover {
-            transform: translateY(-5px);
-            background: rgba(102, 126, 234, 0.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
+/* Hover effect for hourly items */
+.hourly-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    background: rgba(102, 126, 234, 0.1); /* Slightly darker background */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
 
-        .hourly-time {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-        }
+/* Hourly time styling */
+.hourly-time {
+    font-weight: 600; /* Bold font */
+    color: #333; /* Dark text */
+    margin-bottom: 10px; /* Space below */
+}
 
-        .hourly-icon {
-            width: 50px;
-            height: 50px;
-            margin: 10px auto;
-        }
+/* Hourly icon styling */
+.hourly-icon {
+    width: 50px; /* Fixed width */
+    height: 50px; /* Fixed height */
+    margin: 10px auto; /* Centers with spacing */
+}
 
-        .hourly-temp {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin: 10px 0;
-        }
+/* Hourly temperature styling */
+.hourly-temp {
+    font-size: 1.2rem; /* Readable font size */
+    font-weight: 600; /* Bold font */
+    color: #333; /* Dark text */
+    margin: 10px 0; /* Vertical spacing */
+}
 
-        .hourly-desc {
-            font-size: 12px;
-            color: #666;
-            text-transform: capitalize;
-        }
+/* Hourly description styling */
+.hourly-desc {
+    font-size: 12px; /* Smaller font for compactness */
+    color: #666; /* Gray text */
+    text-transform: capitalize; /* Capitalizes first letter of each word */
+}
 
-        .weather-map {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
+/* Weather map section styling */
+.weather-map {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 30px; /* Internal padding */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    text-align: center; /* Centers content */
+}
 
-        .map-placeholder {
-            background: #f0f0f0;
-            height: 300px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 18px;
-        }
+/* Map placeholder styling */
+.map-placeholder {
+    background: #f0f0f0; /* Light gray background */
+    height: 300px; /* Fixed height for the placeholder */
+    border-radius: 15px; /* Rounded corners */
+    display: flex; /* Flexbox for centering content */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    color: #666; /* Gray text/icon color */
+    font-size: 18px; /* Readable font size */
+}
 
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+/* Loading indicator styling */
+.loading {
+    display: none; /* Hidden by default */
+    text-align: center; /* Centers content */
+    padding: 40px; /* Generous padding */
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
 
-        .loading.show {
-            display: block;
-        }
+/* Show loading indicator when active */
+.loading.show {
+    display: block;
+}
 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
+/* Spinner animation styling */
+.spinner {
+    width: 50px; /* Fixed width */
+    height: 50px; /* Fixed height */
+    border: 4px solid #f3f3f3; /* Light gray border */
+    border-top: 4px solid #667eea; /* Blue top border for spinning effect */
+    border-radius: 50%; /* Circular shape */
+    animation: spin 1s linear infinite; /* Continuous spinning animation */
+    margin: 0 auto 20px; /* Centers with bottom margin */
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+/* Keyframes for spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Start at 0 degrees */
+    100% { transform: rotate(360deg); } /* Full rotation */
+}
 
-        .error {
-            background: rgba(231, 76, 60, 0.1);
-            color: #e74c3c;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(231, 76, 60, 0.3);
-            margin: 20px 0;
-            text-align: center;
-            display: none;
-        }
+/* Error message styling */
+.error {
+    background: rgba(231, 76, 60, 0.1); /* Light red background */
+    color: #e74c3c; /* Red text for error indication */
+    padding: 20px; /* Internal padding */
+    border-radius: 15px; /* Rounded corners */
+    border: 1px solid rgba(231, 76, 60, 0.3); /* Subtle red border */
+    margin: 20px 0; /* Vertical spacing */
+    text-align: center; /* Centers text */
+    display: none; /* Hidden by default */
+}
 
-        .air-quality {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            margin-bottom: 30px;
-        }
+/* Air quality section styling */
+.air-quality {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 25px; /* Internal padding */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    margin-bottom: 30px; /* Space below */
+}
 
-        .aqi-value {
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 15px 0;
-        }
+/* Air quality value styling */
+.aqi-value {
+    font-size: 2rem; /* Large font for prominence */
+    font-weight: bold; /* Bold font */
+    text-align: center; /* Centers text */
+    padding: 20px; /* Internal padding */
+    border-radius: 15px; /* Rounded corners */
+    margin: 15px 0; /* Vertical spacing */
+}
 
-        .aqi-good { background: #4CAF50; color: white; }
-        .aqi-fair { background: #8BC34A; color: white; }
-        .aqi-moderate { background: #FFC107; color: black; }
-        .aqi-poor { background: #FF5722; color: white; }
-        .aqi-very-poor { background: #9C27B0; color: white; }
+/* Air quality classes for different levels */
+.aqi-good { background: #4CAF50; color: white; } /* Green for good air quality */
+.aqi-fair { background: #8BC34A; color: white; } /* Light green for fair air quality */
+.aqi-moderate { background: #FFC107; color: black; } /* Yellow for moderate air quality */
+.aqi-poor { background: #FF5722; color: white; } /* Orange for poor air quality */
+.aqi-very-poor { background: #9C27B0; color: white; } /* Purple for very poor air quality */
 
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
+/* Theme toggle button styling */
+.theme-toggle {
+    position: fixed; /* Fixed position in top-right corner */
+    top: 20px; /* Distance from top */
+    right: 20px; /* Distance from right */
+    padding: 12px; /* Internal padding */
+    border: none; /* No border */
+    border-radius: 50%; /* Circular shape */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    color: white; /* White icon color */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 18px; /* Icon size */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
 
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
+/* Hover effect for theme toggle */
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3); /* Slightly darker background */
+    transform: scale(1.1); /* Slight zoom effect */
+}
 
-        @media (max-width: 768px) {
-            .weather-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .weather-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 20px; /* Reduced gap */
+    }
 
-            .search-box {
-                flex-direction: column;
-            }
+    .search-box {
+        flex-direction: column; /* Stack search input and buttons vertically */
+    }
 
-            .temperature {
-                font-size: 3rem;
-            }
+    .temperature {
+        font-size: 3rem; /* Smaller font size for temperature */
+    }
 
-            .header h1 {
-                font-size: 2rem;
-            }
+    .header h1 {
+        font-size: 2rem; /* Smaller heading size */
+    }
 
-            .hourly-forecast {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            }
-        }
+    .hourly-forecast {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller columns for hourly forecast */
+    }
+}
 
-        .hidden {
-            display: none !important;
-        }
+/* Utility class to hide elements */
+.hidden {
+    display: none !important; /* Ensures hidden elements are not displayed */
+}
