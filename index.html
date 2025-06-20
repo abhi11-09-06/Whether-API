@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Pro</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Weather Pro</h1>
+            <p>Get accurate weather information for any location worldwide</p>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" id="cityInput" placeholder="Enter city name...">
+                <button class="search-btn" onclick="getWeather()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button class="location-btn" onclick="getCurrentLocation()">
+                    <i class="fas fa-location-arrow"></i> My Location
+                </button>
+            </div>
+            
+            <div class="quick-cities">
+                <span class="city-tag" onclick="searchCity('New York')">New York</span>
+                <span class="city-tag" onclick="searchCity('London')">London</span>
+                <span class="city-tag" onclick="searchCity('Tokyo')">Tokyo</span>
+                <span class="city-tag" onclick="searchCity('Paris')">Paris</span>
+                <span class="city-tag" onclick="searchCity('Dubai')">Dubai</span>
+                <span class="city-tag" onclick="searchCity('Sydney')">Sydney</span>
+                <span class="city-tag" onclick="searchCity('Mumbai')">Mumbai</span>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Getting weather data...</p>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div id="weatherContent" class="hidden">
+            <div class="weather-grid">
+                <div class="main-weather">
+                    <div class="city-name" id="cityName"></div>
+                    <div class="date-time" id="dateTime"></div>
+                    <img class="weather-icon" id="weatherIcon" alt="Weather">
+                    <div class="temperature" id="temperature"></div>
+                    <div class="weather-desc" id="weatherDesc"></div>
+                    <div class="feels-like" id="feelsLike"></div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-tint"></i>
+                            Humidity
+                        </div>
+                        <div class="detail-value" id="humidity"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-thermometer-half"></i>
+                            Pressure
+                        </div>
+                        <div class="detail-value" id="pressure"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-wind"></i>
+                            Wind Speed
+                        </div>
+                        <div class="detail-value" id="windSpeed"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-eye"></i>
+                            Visibility
+                        </div>
+                        <div class="detail-value" id="visibility"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-sun"></i>
+                            UV Index
+                        </div>
+                        <div class="detail-value" id="uvIndex"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-sunrise"></i>
+                            Sunrise
+                        </div>
+                        <div class="detail-value" id="sunrise"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-sunset"></i>
+                            Sunset
+                        </div>
+                        <div class="detail-value" id="sunset"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="air-quality" id="airQuality">
+                <h3><i class="fas fa-lungs"></i> Air Quality Index</h3>
+                <div class="aqi-value" id="aqiValue"></div>
+                <div id="aqiDesc"></div>
+            </div>
+
+            <div class="forecast-container">
+                <h3 class="forecast-title"><i class="fas fa-clock"></i> 24-Hour Forecast</h3>
+                <div class="hourly-forecast" id="hourlyForecast"></div>
+            </div>
+
+            <div class="weather-map">
+                <h3><i class="fas fa-map"></i> Weather Map</h3>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; opacity: 0.3;"></i>
+                </div>
+                <p style="margin-top: 15px; color: #666;">Interactive weather map coming soon</p>
+            </div>
+        </div>
+    </div>
+   <script src="script.js"></script>
+</body>
+</html>
