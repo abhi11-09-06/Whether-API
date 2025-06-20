@@ -1,35 +1,58 @@
 <!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
 <html lang="en">
+<!-- Sets the document language to English -->
 <head>
+    <!-- Defines the metadata and resources for the webpage -->
     <meta charset="UTF-8">
+    <!-- Specifies the character encoding as UTF-8 for universal character support -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures responsive design by setting the viewport to match device width -->
     <title>Weather Pro</title>
+    <!-- Sets the page title displayed in the browser tab -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Links to Font Awesome for icons used throughout the page -->
     <link rel="stylesheet" href="style.css">
+    <!-- Links to the external CSS file for styling the webpage -->
 </head>
 <body>
+    <!-- Main content of the webpage -->
     <button class="theme-toggle" id="themeToggle">
+        <!-- Button to toggle between light and dark themes -->
         <i class="fas fa-moon"></i>
+        <!-- Font Awesome moon icon indicating theme toggle -->
     </button>
 
     <div class="container">
+        <!-- Main wrapper for centering and organizing content -->
         <div class="header">
+            <!-- Header section containing the app title and description -->
             <h1><i class="fas fa-cloud-sun"></i> Weather Pro</h1>
+            <!-- Main heading with a weather-related icon -->
             <p>Get accurate weather information for any location worldwide</p>
+            <!-- Brief description of the app's purpose -->
         </div>
 
         <div class="search-container">
+            <!-- Container for search input and quick city selection -->
             <div class="search-box">
+                <!-- Wrapper for search input and buttons -->
                 <input type="text" class="search-input" id="cityInput" placeholder="Enter city name...">
+                <!-- Input field for users to enter a city name for weather lookup -->
                 <button class="search-btn" onclick="getWeather()">
+                    <!-- Button to trigger weather search based on input -->
                     <i class="fas fa-search"></i> Search
+                    <!-- Search icon and text for the search button -->
                 </button>
                 <button class="location-btn" onclick="getCurrentLocation()">
+                    <!-- Button to fetch weather for the user's current location -->
                     <i class="fas fa-location-arrow"></i> My Location
+                    <!-- Location icon and text for the current location button -->
                 </button>
             </div>
             
             <div class="quick-cities">
+                <!-- Container for quick-access city tags -->
                 <span class="city-tag" onclick="searchCity('New York')">New York</span>
                 <span class="city-tag" onclick="searchCity('London')">London</span>
                 <span class="city-tag" onclick="searchCity('Tokyo')">Tokyo</span>
@@ -37,100 +60,142 @@
                 <span class="city-tag" onclick="searchCity('Dubai')">Dubai</span>
                 <span class="city-tag" onclick="searchCity('Sydney')">Sydney</span>
                 <span class="city-tag" onclick="searchCity('Mumbai')">Mumbai</span>
+                <!-- Predefined city tags that trigger weather search for specific cities -->
             </div>
         </div>
 
         <div class="loading" id="loading">
+            <!-- Loading indicator shown while fetching weather data -->
             <div class="spinner"></div>
+            <!-- Animated spinner for visual feedback -->
             <p>Getting weather data...</p>
+            <!-- Text indicating data is being loaded -->
         </div>
 
         <div class="error" id="error"></div>
+        <!-- Container for displaying error messages if the weather fetch fails -->
 
         <div id="weatherContent" class="hidden">
+            <!-- Main weather content, initially hidden until data is loaded -->
             <div class="weather-grid">
+                <!-- Grid layout for organizing main weather info and details -->
                 <div class="main-weather">
+                    <!-- Section for primary weather information -->
                     <div class="city-name" id="cityName"></div>
+                    <!-- Displays the name of the city -->
                     <div class="date-time" id="dateTime"></div>
+                    <!-- Displays the current date and time -->
                     <img class="weather-icon" id="weatherIcon" alt="Weather">
+                    <!-- Image element for displaying the weather condition icon -->
                     <div class="temperature" id="temperature"></div>
+                    <!-- Displays the current temperature -->
                     <div class="weather-desc" id="weatherDesc"></div>
+                    <!-- Displays a brief description of the weather -->
                     <div class="feels-like" id="feelsLike"></div>
+                    <!-- Displays the "feels like" temperature -->
                 </div>
 
                 <div class="weather-details">
+                    <!-- Section for additional weather details -->
                     <div class="detail-item">
+                        <!-- Individual detail item for humidity -->
                         <div class="detail-label">
                             <i class="fas fa-tint"></i>
                             Humidity
                         </div>
                         <div class="detail-value" id="humidity"></div>
+                        <!-- Displays the humidity value -->
                     </div>
                     <div class="detail-item">
+                        <!-- Individual detail item for pressure -->
                         <div class="detail-label">
                             <i class="fas fa-thermometer-half"></i>
                             Pressure
                         </div>
                         <div class="detail-value" id="pressure"></div>
+                        <!-- Displays the atmospheric pressure -->
                     </div>
                     <div class="detail-item">
+                        <!-- Individual detail item for wind speed -->
                         <div class="detail-label">
                             <i class="fas fa-wind"></i>
                             Wind Speed
                         </div>
                         <div class="detail-value" id="windSpeed"></div>
+                        <!-- Displays the wind speed -->
                     </div>
                     <div class="detail-item">
+                        <!-- Individual detail item for visibility -->
                         <div class="detail-label">
                             <i class="fas fa-eye"></i>
                             Visibility
                         </div>
                         <div class="detail-value" id="visibility"></div>
+                        <!-- Displays the visibility distance -->
                     </div>
                     <div class="detail-item">
+                        <!-- Individual detail item for UV index -->
                         <div class="detail-label">
                             <i class="fas fa-sun"></i>
                             UV Index
                         </div>
                         <div class="detail-value" id="uvIndex"></div>
+                        <!-- Displays the UV index -->
                     </div>
                     <div class="detail-item">
+                        <!-- Individual detail item for sunrise time -->
                         <div class="detail-label">
                             <i class="fas fa-sunrise"></i>
                             Sunrise
                         </div>
                         <div class="detail-value" id="sunrise"></div>
+                        <!-- Displays the sunrise time -->
                     </div>
                     <div class="detail-item">
+                        <!-- Individual detail item for sunset time -->
                         <div class="detail-label">
                             <i class="fas fa-sunset"></i>
                             Sunset
                         </div>
                         <div class="detail-value" id="sunset"></div>
+                        <!-- Displays the sunset time -->
                     </div>
                 </div>
             </div>
 
             <div class="air-quality" id="airQuality">
+                <!-- Section for air quality information -->
                 <h3><i class="fas fa-lungs"></i> Air Quality Index</h3>
+                <!-- Heading for air quality section -->
                 <div class="aqi-value" id="aqiValue"></div>
+                <!-- Displays the air quality index value -->
                 <div id="aqiDesc"></div>
+                <!-- Displays a description of the air quality -->
             </div>
 
             <div class="forecast-container">
+                <!-- Container for the 24-hour weather forecast -->
                 <h3 class="forecast-title"><i class="fas fa-clock"></i> 24-Hour Forecast</h3>
+                <!-- Heading for the forecast section -->
                 <div class="hourly-forecast" id="hourlyForecast"></div>
+                <!-- Container for hourly forecast data -->
             </div>
 
             <div class="weather-map">
+                <!-- Section for the weather map (placeholder) -->
                 <h3><i class="fas fa-map"></i> Weather Map</h3>
+                <!-- Heading for the weather map section -->
                 <div class="map-placeholder">
+                    <!-- Placeholder for the weather map -->
                     <i class="fas fa-map-marked-alt" style="font-size: 3rem; opacity: 0.3;"></i>
+                    <!-- Icon indicating the map feature -->
                 </div>
                 <p style="margin-top: 15px; color: #666;">Interactive weather map coming soon</p>
+                <!-- Note indicating the map feature is not yet implemented -->
             </div>
         </div>
     </div>
-   <script src="script.js"></script>
+    <script src="script.js"></script>
+    <!-- Links to the external JavaScript file for functionality -->
 </body>
 </html>
